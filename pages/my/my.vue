@@ -1,6 +1,6 @@
 <template>
   <view class="flex-col page">
-    <view class="flex-col flex-1 group">
+    <view v-if="userStore.userinfo.token" class="flex-col flex-1 group">
       <view class="flex-col section">
         <view class="flex-col profile_header">
           <view class="flex-row justify-between user_part">
@@ -11,29 +11,9 @@
                 <text class="mt-6 sign text_4"> {{userStore?.userinfo?.sign}} </text>
               </view>
             </view>
-            <view class="flex-row button qian">
-              <image class="shrink-0 image_3" src="/static/center/4f3b27ac9eb2690738cfca1219448f3d.png" />
-              <text class="text_3 ml-4-5">签到</text>
-            </view>
+     
           </view>
-          <view class="flex-row count">
-            <view class="flex-col items-center group_3 equal-division-item">
-              <text class="sign">0/10</text>
-              <text class="font_3 text_1 mt-5-5">刷题</text>
-            </view>
-            <view class="flex-col items-center group_3 equal-division-item ml-9">
-              <text class="sign">0/10</text>
-              <text class="font_3 mt-5">点赞</text>
-            </view>
-            <view class="flex-col items-center group_3 equal-division-item ml-9">
-              <text class="sign">0/10</text>
-              <text class="font_3 mt-5">评论</text>
-            </view>
-            <view class="flex-col items-center group_3 equal-division-item ml-9">
-              <text class="sign">0/10</text>
-              <text class="font_3 mt-5">分享</text>
-            </view>
-          </view>
+   
         </view>
       </view>
       <view class="flex-col common_list">
@@ -45,13 +25,7 @@
           <image class="image_5" src="/static/center/cacf793277371a34dc9bad30a903649e.png" />
         </view>
         <view class="flex-col">
-          <view class="flex-row justify-between items-center group_5">
-            <view class="flex-row">
-              <image class="shrink-0 image_6" src="/static/center/52ee949d28836ea17704774eb29aef96.png" />
-              <text class="font_4 text_6 ml-10-5">推荐好友</text>
-            </view>
-            <image class="image_5" src="/static/center/cacf793277371a34dc9bad30a903649e.png" />
-          </view>
+       
           <view class="flex-row justify-between items-center group_15">
             <view class="flex-row items-center">
               <image class="shrink-0 image_7" src="/static/center/62db8fc4b354ec91b8ae15b7ff29d5dc.png" />
@@ -80,7 +54,9 @@
 		</view>
       </view>
     </view>
-   
+    <view v-else>请登陆后操作
+	<navigator class="toLogin"  url="/pages/login/login">点击登录</navigator>
+	</view>
   </view>
 </template>
 
@@ -113,7 +89,7 @@ import { useUserStore } from '../../src/store/user';
 	
 </script>
 
-<style scoped lang="less">
+<style scoped lang="less" >
   .ml-4-5 {
     margin-left: 9rpx;
   }
@@ -159,6 +135,7 @@ import { useUserStore } from '../../src/store/user';
         }
         .profile_header {
           margin-top: 49rpx;
+		  margin-bottom: 30rpx;
           .user_part {
             padding-left: 31rpx;
             .avatar {
@@ -284,5 +261,9 @@ import { useUserStore } from '../../src/store/user';
       }
     }
    
+   .toLogin{
+	   text-decoration: underline;
+	   color: blue;
+   }
   }
 </style>

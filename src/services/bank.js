@@ -24,3 +24,8 @@ export function getSingleListAPI(bankId) {
 export function submitQuestionAPI(params) {
   return http({ url: `/question/finish`, method: 'POST', data: params })
 }
+
+// 浏览加1
+export function feverAddOneAPI(bankId){
+	return http({url: `/question/fever?bankId=${bankId}`, method:'GET' })
+}

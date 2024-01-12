@@ -42,7 +42,12 @@
 			"navigationBarTitleText": "登录"
 		}
 	},
-
+	{
+		"path": "pages/index/components/bank",
+		"style": {
+			"navigationBarTitleText": "题库"
+		}
+	},
 
 	{
 		"path": "pages/my/my",
@@ -55,6 +60,14 @@
 	  "style":{
 	    "navigationBarTitleText": "资料设置"
 	  }
+	},
+	{
+		"path" : "pages/file/file",
+		"style" : 
+		{
+			"enablePullDownRefresh" : true,
+			"navigationBarTitleText" : "文件"
+		}
 	}
 	
 	
@@ -74,13 +87,25 @@
 		"selectedColor": "#27ba9b",
 		"backgroundColor": "#fff",
 		"borderStyle": "white",
-		"list": [{
+		"list": [
+			{
 				"text": "首页",
 				"pagePath": "pages/index/index",
 				"iconPath": "static/tabs/home_default.png",
 				"selectedIconPath": "static/tabs/home_selected.png"
 			},
-
+			{
+				"text": "题库",
+				"pagePath": "pages/index/components/bank",
+				"iconPath": "static/tabs/home_default.png",
+				"selectedIconPath": "static/tabs/home_selected.png"
+			},
+			{
+				"text": "文件",
+				"pagePath": "pages/file/file",
+				"iconPath": "static/tabs/home_default.png",
+				"selectedIconPath": "static/tabs/home_selected.png"
+			},
 			{
 				"text": "我的",
 				"pagePath": "pages/my/my",

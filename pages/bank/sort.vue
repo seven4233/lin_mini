@@ -14,6 +14,7 @@ export default {
 import { useBankStore } from '@/src/store/bankStore.js'
 import { getCurrentInstance } from 'vue'
 import { onMounted, onBeforeMount, ref } from 'vue'
+import { feverAddOne, feverAddOneAPI } from '../../src/services/bank';
 const bankStore = useBankStore()
 
 // 拿到题库id
@@ -22,15 +23,20 @@ onBeforeMount(() => {
   bankId.value = getCurrentInstance()?.data.id
 })
 onMounted(() => {
+	// 更新fever的值
+	bankStore.getBankListAction()
+	
   // 根据题库id获取题库分类
   bankStore.getSortInfoAction(+bankId.value)
 })
-const itemClick = (item) => {
+const itemClick = async(item) => {
   console.log(item)
   // go(`/bank/${'1'}/${item.value}`)
   uni.navigateTo({
     url: `/pages/bank/${item.value}?bankId=${bankId.value}`,
   })
+  
+
 }
 </script>
 <template>

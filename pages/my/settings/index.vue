@@ -82,8 +82,9 @@ const submit = () => {
 </script>
 
 <template>
+	
   <view class="settings">
-    <uni-section title="修改基本信息" type="line">
+   
       <view class="form">
         <!-- 基础表单校验 -->
         <uni-forms ref="formRef" :rules="rules" :modelValue="formData">
@@ -118,15 +119,16 @@ const submit = () => {
 	
 		<button type="primary" @click="submit">提交</button>
 		
-		
       </view>
-    </uni-section>
   </view>
 </template>
 
 <style lang="less" scoped>
-	.form{
-		padding: 0 30rpx;
+	.settings {
+		.form{
+			padding: 20rpx 30rpx;
+		}
 	}
+
 </style>
 

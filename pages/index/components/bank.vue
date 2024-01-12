@@ -2,23 +2,28 @@
 // import { Card, Tag } from 'ant-design-vue'
 import { onMounted } from 'vue'
 import { useBankStore } from '@/src/store/bankStore'
+import { feverAddOneAPI } from '../../../src/services/bank';
 
 const bankStore = useBankStore()
 onMounted(() => {
   bankStore.getBankListAction()
 })
-const itemClick = (bank) => {
+const itemClick = async(bank) => {
   const { id } = bank
+  
+  
   uni.navigateTo({
     url: `/pages/bank/sort?id=${id}`,
   })
+  await feverAddOneAPI(id)
+  
+  
 }
 </script>
 
 <template>
   <div class="bank">
     <div class="question_list">
-      <view>题库列表</view>
       <div
         v-for="item in bankStore.bankList"
         :key="item.id"
@@ -31,9 +36,7 @@ const itemClick = (bank) => {
             </div>
           </div>
           <view class="bottom">
-            <view class="ncicon">
               <uni-icons class="icon" type="fire-filled" color="rgb(181, 22, 22) " size="24" />
-            </view>
             <view>{{ item.fever }}</view>
           </view>
         </uni-card>
