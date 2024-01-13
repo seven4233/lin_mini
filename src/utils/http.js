@@ -3,8 +3,8 @@
 import { useUserStore } from '@/src/store/user.js'
 
 // 请求基地址
-const baseURL = 'http://localhost:3000'
-// const baseURL = 'https://www.iccmsm.com'
+// const baseURL = 'http://localhost:3000'
+const baseURL = 'https://www.iccmsm.com'
 
 // 拦截器配置
 const httpInterceptor = {
